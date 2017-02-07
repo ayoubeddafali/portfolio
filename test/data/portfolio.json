@@ -1,0 +1,15 @@
+{
+  "works": [
+    {
+      "url": "https://grafikart.fr/",
+      "tags": ["Rails","Frontend"],
+      "screens": [
+        "https://grafikart.fr/",
+        "https://grafikart.fr/references/groupe-fed", 
+        "https://grafikart.fr/expertise-services-web/creation-de-site-internet"
+      ],
+      "name": "Hello",
+      "content": "Some random text"
+    }
+  ]
+}
