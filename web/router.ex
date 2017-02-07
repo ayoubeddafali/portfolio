@@ -18,7 +18,7 @@ defmodule Portfolio.Router do
 
     get "/", PageController, :index
     post "/works", WorkController, :create
-    get "/works", WorkController, :index
+    get "/portfolio", WorkController, :index
   end
 
   # Other scopes may use custom stacks.

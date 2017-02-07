@@ -12,9 +12,14 @@ defmodule Portfolio.Screenshot do
   def capture(directory, url, width, height) do
     dirname = directory |> Path.absname()
     filename = md5(url)
-    if !File.exists?(dirname), do: File.mkdir_p!(dirname)
-    %{err: nil} = Porcelain.exec "pageres", [url, "#{width}x#{height}", "--filename", filename, "--crop", "--format=jpg"], dir: dirname
-    Path.join(dirname, filename <> ".jpg")
+    filepath = Path.join(dirname, filename <> ".jpg")
+    if File.exists?(filepath) do
+      {:error, "File already exists"}
+    else
+      if !File.exists?(dirname), do: File.mkdir_p!(dirname)
+      %{err: nil} = Porcelain.exec "pageres", [url, "#{width}x#{height}", "--filename", filename, "--crop", "--format=jpg"], dir: dirname
+      {:ok, filepath}
+    end
   end
 
   defp resize(file) do

@@ -5,9 +5,15 @@ defmodule Portfolio.WorkController do
   alias Portfolio.Work
 
   def index(conn, _params) do
-    changeset = Work.changeset(%Work{})
-    Portfolio.Database.sync(:portfolio_db)
-    render conn, "index.html", changeset: changeset
+    works = Portfolio.Database.get_works(:portfolio_db)
+    works
+      |> Enum.map(&(&1.screens))
+      |> Enum.reduce([], fn (x, acc) -> x ++ acc end)
+      |> Enum.map(fn (screen) ->
+        Portfolio.Screenshot.capture("priv/static/screens", screen, 1280, 720)
+       end)
+      |> IO.inspect
+    render conn, "index.html", works: works
   end
 
   def create(conn, %{"work" => params}) do
