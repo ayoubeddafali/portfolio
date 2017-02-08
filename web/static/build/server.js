@@ -33,3 +33,6 @@ server.listen(config.port, function (err) {
   chokidar.watch(config.refresh).on('change', refresh)
   console.log('==> Listening on http://localhost:' + config.port)
 })
+
+process.stdin.on('end', function() { process.exit(0) })
+process.stdin.resume()
