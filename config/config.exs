@@ -21,6 +21,16 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+config :guardian, Guardian,
+  allowed_algos: ["HS512"], # optional
+  verify_module: Guardian.JWT,  # optional
+  issuer: "Grafikart",
+  ttl: { 10, :days },
+  allowed_drift: 2000,
+  verify_issuer: true, # optional
+  secret_key: "pwfnf4-ks4bp=)_1pzx@8pibvfbzu*h9$+md$5!i**07faxrf(",
+  serializer: Portfolio.Serializer
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

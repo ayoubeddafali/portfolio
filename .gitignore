@@ -5,11 +5,12 @@ erl_crash.dump
 *.ez
 *.beam
 .DS_Store
+.vscode
 priv/portfolio.json
 priv/portfolio_backup.json
 config/prod.secret.exs
 .idea
 *.iml
 node_modules/
-priv/static/images/screens
 npm-debug.lol
+priv/static

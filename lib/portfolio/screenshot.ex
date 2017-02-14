@@ -16,13 +16,20 @@ defmodule Portfolio.Screenshot do
     if File.exists?(filepath) do
       {:error, "File already exists"}
     else
-      if !File.exists?(dirname), do: File.mkdir_p!(dirname)
-      %{err: nil} = Porcelain.exec "pageres", [url, "#{width}x#{height}", "--filename", filename, "--crop", "--format=jpg"], dir: dirname
+      if !File.exists?(dirname) do
+        File.mkdir_p!(dirname)
+      end
+      if !File.exists?(filepath) do
+        System.cmd("pageres", [url, "#{width}x#{height}", "--filename", filename, "--crop", "--format=jpg"], cd: dirname)
+      end
       {:ok, filepath}
     end
   end
 
   defp resize(file) do
+      with = "0"
+      height = "0"
+      path = file
       %{err: nil} = Porcelain.exec "convert", [
       "tmp.png",
       "-resize",

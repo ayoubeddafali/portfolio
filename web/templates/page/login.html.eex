@@ -1,0 +1,6 @@
+<form action="<%= page_path(@conn, :login) %>">
+  <div class="form-group">
+    <input required type="text" class="form-control" name="password" placeholder="2 x 2 ?">
+  </div>
+  <button class="btn">Envoyer</button>
+</form>

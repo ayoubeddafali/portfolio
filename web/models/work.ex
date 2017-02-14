@@ -16,6 +16,13 @@ defmodule Portfolio.Work do
     Map.merge(work, changeset.changes)
   end
 
+  def screen_path(conn, %{screens: [url | _]}), do: screen_path(conn, url)
+
+  def screen_path(conn, url) when is_binary(url) do
+    md5 = Base.encode16(:erlang.md5(url), case: :lower)
+    Portfolio.Router.Helpers.static_path(conn, "/screens/" <> md5 <> ".jpg")
+  end
+
   defp parse_screens(screens) do
     screens
       |> String.split("\n")

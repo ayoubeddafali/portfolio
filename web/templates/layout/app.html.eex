@@ -7,12 +7,23 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Portfolio!</title>
+    <title>Jonathan Boyer | Portfolio</title>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans|Kreon' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
     <div class="container">
+      <div class="header">
+        <div class="header__logo">
+          <img src="/images/logo.png" alt="">
+        </div>
+        <div class="header__menu">
+          <a href="<%= page_path(@conn, :index) %>">Accueil</a>
+          <a href="<%= work_path(@conn, :index) %>">Portfolio</a>
+        </div>
+        <div class="header__icon menu-icon"><span></span></div>
+      </div>
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
@@ -31,6 +42,5 @@
 
     </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-    <script src="http://localhost:3003/assets/app.js"></script>
   </body>
 </html>

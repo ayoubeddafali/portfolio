@@ -5,7 +5,8 @@ defmodule Portfolio.Database do
   def start_link(db_name, db_path \\ false) do
     state = %{
       database: db_path,
-      works: []
+      works: [],
+      user: %{}
     }
     GenServer.start_link(__MODULE__, state, name: db_name)
   end
@@ -20,6 +21,10 @@ defmodule Portfolio.Database do
 
   def delete_work(pid, index) do
     GenServer.call(pid, {:delete_work, index})
+  end
+
+  def auth(pid, password) do
+    GenServer.call(pid, {:auth, password})
   end
 
   def sync(pid) do
@@ -66,6 +71,13 @@ defmodule Portfolio.Database do
     new_works = Map.get(state, :works) |> List.delete_at(index)
     new_state = Map.put(state, :works, new_works)
     {:reply, :ok, new_state}
+  end
+
+  @doc """
+  Authenticate an user
+  """
+  def handle_call({:auth, password}, _from, state) do
+    {:reply, Comeonin.Bcrypt.checkpw(password, state.password), state}
   end
 
   @doc """

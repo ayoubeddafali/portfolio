@@ -1,0 +1,118 @@
+.works {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.work {
+  margin-bottom: 1.4rem;
+}
+
+.work__thumb {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.work__name {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.work__tags {
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+.work .work-detail {
+  display: none;
+}
+
+@media #{$medium-up} {
+  .work {
+    float: left;
+    width: 25%;
+    padding: 10px;
+  }
+}
+
+
+/* Detail
+   ========================================================================== */
+.work-detail {
+  display: block;
+  float: left;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px dashed $grey;
+  border-top: 1px dashed $grey;
+  height: 0px;
+  opacity: 0;
+  transition-duration: 0.5s;
+  transition-property: height, margin, padding, opacity;
+}
+
+.work-detail.active{
+  height: 450px;
+  margin: 1rem 0px;
+  padding-top: 1rem;
+  opacity: 1;
+
+  & .work-detail__name, & .work-detail__tags, & .work-detail__content{
+    opacity: 0;
+    animation: slideIn 0.5s forwards;
+    animation-delay: 0.3s;
+  }
+  & .work-detail__tags{
+    animation-delay: 0.7s;
+  }
+
+  & .work-detail__content{
+    animation-delay: 0.9s;
+  }
+}
+
+.work-detail__slide {
+  background: url(/images/browser.png);
+  position: relative;
+  width: 488px;
+  height: 433px;
+  float: left;
+  img {
+    position: absolute;
+    top: 54px;
+    left: 14px;
+    bottom: 0;
+    width: 460px;
+  }
+}
+
+.work-detail__body {
+  overflow: hidden;
+  float: left;
+  padding-left: 2rem;
+}
+
+.work-detail__name {
+  margin: 7px 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.work-detail__tags {
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-bottom: 7px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

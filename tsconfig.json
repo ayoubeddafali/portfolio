@@ -1,37 +1,20 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es2015",
-    "moduleResolution": "node",
+    "module": "commonjs",
+    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
+    "noEmitHelpers": true,
+    "importHelpers": true,
     "noEmit": true,
-    "noEmitHelpers": false,
-    "strictNullChecks": false,
-    "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2015",
-      "es2015.promise"
-    ],
-    "types": [
-    ]
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "exclude": [
     "node_modules",
-    "dist",
-    "src/**/*.spec.ts",
-    "src/**/*.e2e.ts"
-  ],
-  "awesomeTypescriptLoaderOptions": {
-    "forkChecker": true,
-    "useWebpackText": true
-  },
-  "compileOnSave": false,
-  "buildOnSave": false,
-  "atom": {
-    "rewriteTsconfig": false
-  }
+    "public"
+  ]
 }

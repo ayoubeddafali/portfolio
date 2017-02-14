@@ -1,0 +1,58 @@
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  transition-duration: .25s;
+  color: #54555A;
+  border: 1px solid #D9E1E7;
+  outline: none;
+  background: #FBFBFB;
+}
+
+.form-control:focus {
+  border: 1px solid #555555;
+  background: #FFFFFF;
+  box-shadow: 0 0 3px #AAAAAA;
+}
+
+/* === HTML5 validation styles === */
+.form-control:required {
+  background: #FFFFFF url(/images/red_asterisk.png) no-repeat 98% center;
+}
+
+.form-control:required:valid {
+  border-color: #56C93F;
+  background: #FFFFFF url(/images/valid.png) no-repeat 98% center;
+  box-shadow: 0 0 5px #5CD053;
+}
+
+.form-control:focus:invalid {
+  border-color: #FF5A5A;
+  background: #FFFFFF url(/images/invalid.png) no-repeat 98% center;
+  box-shadow: 0 0 5px #D45252;
+}
+
+.error-message {
+  color: #FF5A5A;
+}
+
+.btn {
+  display: block;
+  padding: 7px 15px;
+  text-align: center;
+  cursor: pointer;
+  color: inherit;
+  border: solid 1px #CCCCCC;
+  border-radius: 3px;
+  background: #FFFFFF;
+  background: linear-gradient(top, #FFFFFF, #EAEAEA);
+}

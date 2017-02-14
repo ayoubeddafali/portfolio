@@ -1,1 +1,27 @@
-<h1>Bienvenue</h1>
+<div class="works">
+  <%= for {work, i} <- Enum.with_index(@works) do %>
+  <article class="work" id="work<%= i %>">
+    <img class="work__thumb" src="<%= Portfolio.Work.screen_path(@conn, work) %>" alt="">
+    <h3 class="work__name"><%= work.name %></h3>
+    <div class="work__tags"><%= Enum.join(work.tags, ", ") %></div>
+
+    <aside class="work-detail">
+      <div class="work-detail__slide">
+        <%= for screen <- work.screens do %>
+        <img class="work__thumb" src="<%= Portfolio.Work.screen_path(@conn, screen) %>" alt="">
+        <%= end %>
+      </div>
+      <div class="work-detail__body">
+        <h3 class="work-detail__name"><%= work.name %></h3>
+        <div class="work-detail__tags"><%= Enum.join(work.tags, ", ") %></div>
+        <div class="work-detail__content">
+          <%= work.content %>
+        </div>
+      </div>
+    </aside>
+
+  </article>
+
+  <% end %>
+</div>
+

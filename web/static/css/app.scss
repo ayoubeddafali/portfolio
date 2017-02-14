@@ -1,29 +1,89 @@
-/* Variables
-   ========================================================================== */
-$color: rgba(#000, 0.54);
-
-/* MISC
-   ========================================================================== */
-@import "tools/helpers";
-@import "tools/responsive";
+$orange: #e95e4c; 
+$color: #8d8f92;
+$grey: #c9c9c9;
 
 /* Generic
-   ========================================================================== */
+========================================================================== */
+* { box-sizing: border-box; }
+
 body {
-  color: inherit;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  font-family: PT Sans, sans-serif;
+  color: $color;
 }
 
-/* Tools
-   ========================================================================== */
-@import "tools/layout";
+a {
+  color: $orange;
+}
 
-/* Modules
-   ========================================================================== */
-// @import "modules/comments";
+img {
+  max-width: 100%;
+}
 
-/* Pages
-   ========================================================================== */
-// @import "pages/single";
-// @import "pages/single";
-// @import "pages/single";
-// @import "pages/single";
+h1, h2, h3, h4, h5 {
+  color: #333;
+  font-family: Kreon, serif;
+}
+
+/* import
+========================================================================== */
+@import "tools/responsive";
+@import "modules/form";
+@import "modules/menuicon";
+@import "modules/works";
+
+/* Header
+========================================================================== */
+.header {
+  padding: 20px 0px;
+  overflow: hidden;
+  border-bottom: 1px dashed $grey;
+}
+
+.header__logo {
+  float: left;
+}
+
+.header__menu {
+  float: right;
+  text-align: right;
+  height: 95px;
+  line-height: 95px;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover, a.active {
+    color: $orange;
+  }
+}
+
+/* Homepage
+========================================================================== */
+.hero {
+  overflow: hidden;
+}
+
+.hero__img {
+  float: left;
+  max-width: 100%;
+  margin-right: 2rem;
+}
+
+.hero__title{
+  margin: 1.5rem 0px;
+  font-size: 2.6rem;
+  line-height: 1.1;
+  text-align: center;
+  font-weight: normal;
+}
+
+@media #{$medium-up} {
+  .hero__img {
+    float: left;
+  }
+}

@@ -32,4 +32,14 @@ defmodule DatabaseTest do
     assert [%{name: "Hello", tags: [_, _]}] = Database.get_works(db)
   end
 
+  test "It authenticate user" do
+    {:ok, db} = Database.start_link(:test_db_with_file, "test/data/portfolio.json")
+    assert Database.auth(db, "admin") == true
+  end
+
+  test "It failed to authenticate on wrong password" do
+    {:ok, db} = Database.start_link(:test_db_with_file, "test/data/portfolio.json")
+    assert Database.auth(db, "admine") == false
+  end
+
 end

@@ -1,5 +1,5 @@
 $medium: 768px !default;
-$large: 1090px !default;
+$large: 940px !default;
 $menu-width: 227px !default;
 
 $medium-up: "only screen and (min-width: #{$medium})" !default;
@@ -36,11 +36,13 @@ body {
   left: -1 * $menu-width;
 }
 
+.container {
+  margin: 0 20px;
+}
+
 @media #{$large-up} {
   .container {
     width: $large;
     margin: 0 auto;
-
-    @include clearfix;
   }
 }

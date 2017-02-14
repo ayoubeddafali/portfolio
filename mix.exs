@@ -29,7 +29,9 @@ defmodule Portfolio.Mixfile do
        :bootform,
        :ecto,
        :phoenix_ecto,
-       :poison
+       :poison,
+       :comeonin,
+       :guardian
       ]]
   end
 
@@ -55,7 +57,9 @@ defmodule Portfolio.Mixfile do
      {:mogrify, "~> 0.5.4"},
      {:bootform, "~> 0.1.2"},
      {:ecto, "~> 2.1"},
-     {:poison, "~> 2.0"}
+     {:poison, "~> 2.0"},
+     {:comeonin, "~> 3.0"},
+     {:guardian, "~> 0.14"}
    ]
   end
 end
